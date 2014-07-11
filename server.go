@@ -8,7 +8,7 @@ func main() {
 			return "Hello World"
 		})
 	m.Get("/test", func() string {
-			return "Test"
+			return "Test Page"
 		})
 	m.Run()
 }
