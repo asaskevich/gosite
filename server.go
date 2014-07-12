@@ -1,14 +1,21 @@
 package main
 
-import "github.com/go-martini/martini"
+import (
+	"net/http"
+	"github.com/go-martini/martini"
+	"github.com/martini-contrib/sessions"
+)
 
+// Entry point for server
 func main() {
 	m := martini.Classic()
-	m.Get("/", func() string {
-			return "Hello World"
-		})
-	m.Get("/test", func() string {
-			return "Test Page"
+	// set up the session, and map it into martini
+	store := sessions.NewCookieStore([]byte("auth"))
+	m.Use(sessions.Sessions("go-webapp-part2", store))
+	// Redirect from "/" to "/home" url
+	m.Get("/", func(w http.ResponseWriter, r *http.Request, session sessions.Session) string {
+			http.Redirect(w, r, "/home", http.StatusFound)
+			return "OK"
 		})
 	m.Run()
 }
