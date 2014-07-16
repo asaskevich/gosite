@@ -1,4 +1,4 @@
 # IDEA directory
-.idea/
-public/.idea/
-bin/
+.idea/*
+public/.idea/*
+bin/*
