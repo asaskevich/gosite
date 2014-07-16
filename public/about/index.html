@@ -186,15 +186,15 @@
                         <form role="form" action="../feedback" method="POST">
                             <div class="form-group col-xs-12 floating-label-form-group">
                                 <label>Ваше имя:</label>
-                                <input class="form-control" type="text" name="name" placeholder="Имя">
+                                <input class="form-control" type="text" name="name" placeholder="Имя" maxlength="32">
                             </div>
                             <div class="form-group col-xs-12 floating-label-form-group">
                                 <label>Email адрес:</label>
-                                <input class="form-control" type="email" name="email" placeholder="Email">
+                                <input class="form-control" type="email" name="email" placeholder="Email" maxlength="64">
                             </div>
                             <div class="form-group col-xs-12 floating-label-form-group">
                                 <label>Ваши пожелания, отзывы:</label>
-                                <textarea placeholder="Сообщение" class="form-control" rows="5" name="text"></textarea>
+                                <textarea placeholder="Сообщение" class="form-control" rows="5" name="text" maxlength="1024"></textarea>
                             </div>
                             <div class="form-group col-xs-12">
                                 <button type="submit" class="btn btn-info">Send</button>
@@ -237,7 +237,8 @@
 <!-- JavaScript -->
 <script src="../js/jquery-1.10.2.js"></script>
 <script src="../js/bootstrap.js"></script>
-<script src="../js/modern-business.js"></script>
+<script src="../js/bootstrap-maxlength.js"></script>
+<script src="../js/service.js"></script>
 
 </body>
 
