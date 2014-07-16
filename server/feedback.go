@@ -20,13 +20,13 @@ func WriteFeedback(name string, email string, text string) int {
 		fmt.Printf("'%v' is not an email!\n", email)
 		return NOT_AN_EMAIL
 	}
-	// Length of name can't be less than five letters and more than thirty two letters
-	if !govalidator.IsByteLength(name, 5, 32) {
+	// Length of name can't be less than four letters and more than thirty two letters
+	if !govalidator.IsByteLength(name, 4, 32) {
 		fmt.Printf("Name '%v' has invalid length!\n", name)
 		return INVALID_NAME
 	}
-	// Length of text should be between  32 and 1024 letters
-	if !govalidator.IsByteLength(text, 32, 1024) {
+	// Length of text should be between 16 and 1024 letters
+	if !govalidator.IsByteLength(text, 16, 1024) {
 		fmt.Printf("Feedback '%v' has invalid length!\n", text)
 		return INVALID_NAME
 	}
