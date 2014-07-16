@@ -7,6 +7,7 @@ import (
 	"github.com/asaskevich/gosite/server"
 	"github.com/martini-contrib/render"
 	"strconv"
+	"encoding/json"
 )
 
 // Entry point for server
@@ -39,7 +40,9 @@ func main() {
 	// Rendering error page
 	m.Get("/error/**", func(params martini.Params, r render.Render) {
 			result := params["_1"]
-			r.HTML(200, "error", result)
+			str, _ := strconv.Atoi(result)
+			res, _ := json.MarshalIndent(map[string]interface{}{"id": result, "message":server.GetMessage(str)}, "", "    ")
+			r.HTML(200, "error", string(res))
 		})
 	m.Run()
 }
