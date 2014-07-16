@@ -5,6 +5,7 @@ gosite
 
 My personal site written on Go. It's deployed on Heroku and tested by Wercker.
 
-### It's using
-martini
-bootstrap
+### It's using:
+* Martini
+* Twitter Bootstrap
+* MongoDB
