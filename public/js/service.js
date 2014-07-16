@@ -8,7 +8,7 @@ $('.tooltip-social').tooltip({
     selector: "a[data-toggle=tooltip]"
 })
 
-// Activate Bootstrap Maxlength
+// Activate Bootstrap maxLength plugin
 $('textarea.form-control').maxlength({
     alwaysShow: true,
     warningClass: "label label-success",

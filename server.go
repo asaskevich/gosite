@@ -4,8 +4,7 @@ import (
 	"github.com/go-martini/martini"
 	"github.com/martini-contrib/sessions"
 	"net/http"
-	// "server" // For local testing
-	"github.com/asaskevich/gosite/server" // For deployment
+	"github.com/asaskevich/gosite/server"
 )
 
 // Entry point for server
@@ -28,7 +27,7 @@ func main() {
 			} else {
 				// TODO
 				// Render template with error
-				return "SOME ERRORS IN REQUEST"
+				return "SOME ERRORS WITH REQUEST"
 			}
 			return "OK"
 		})

@@ -2,7 +2,7 @@
 	"ImportPath": "github.com/asaskevich/gosite",
 	"GoVersion": "go1.3",
 	"Packages": [
-		"./..."
+		".//..."
 	],
 	"Deps": [
 		{
