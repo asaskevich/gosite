@@ -16,10 +16,18 @@
     <link href="../css/small-business.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/bootstrap-social.css" rel="stylesheet">
+    <link href="../css/fort.css" rel="stylesheet">
+
+    <script src="../js/fort.min.js"></script>
 
 </head>
 
 <body>
+
+<div class="top">
+    <div class="colors">
+    </div>
+</div>
 
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
@@ -182,20 +190,22 @@
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <form role="form" action="../feedback" method="POST">
+                        <form role="form" action="../feedback" method="POST" class="form">
                             <div class="form-group col-xs-12 floating-label-form-group">
                                 <label>Ваше имя:</label>
-                                <input class="form-control" type="text" name="name" placeholder="Имя" maxlength="32">
+                                <input class="form-control" type="text" name="name" placeholder="Jimmy Barth"
+                                       maxlength="32"
+                                       required="required">
                             </div>
                             <div class="form-group col-xs-12 floating-label-form-group">
                                 <label>Email адрес:</label>
-                                <input class="form-control" type="email" name="email" placeholder="Email"
-                                       maxlength="64">
+                                <input class="form-control" type="email" name="email" placeholder="jimmy@gmail.com"
+                                       maxlength="64" required="required">
                             </div>
                             <div class="form-group col-xs-12 floating-label-form-group">
                                 <label>Ваши пожелания, отзывы:</label>
-                                <textarea placeholder="Сообщение" class="form-control" rows="5" name="text"
-                                          maxlength="1024"></textarea>
+                                <textarea placeholder="I want to say..." class="form-control" rows="5" name="text"
+                                          maxlength="1024" required="required"></textarea>
                             </div>
                             <div class="form-group col-xs-12">
                                 <button type="submit" class="btn btn-info">Send</button>
@@ -240,6 +250,7 @@
 <script src="../js/bootstrap.js"></script>
 <script src="../js/bootstrap-maxlength.js"></script>
 <script src="../js/service.js"></script>
+<script>solid();</script>
 
 </body>
 

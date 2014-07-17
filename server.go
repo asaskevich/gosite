@@ -34,7 +34,6 @@ func main() {
 				http.Redirect(w, r, "/about", http.StatusFound)
 				return "OK"
 			} else {
-				// TODO
 				// Render template with error
 				http.Redirect(w, r, "/error/"+strconv.Itoa(result), http.StatusFound)
 				return "SOME ERRORS"
