@@ -6,6 +6,11 @@
 	],
 	"Deps": [
 		{
+			"ImportPath": "code.google.com/p/go.net/html",
+			"Comment": "null-137",
+			"Rev": "335bcad0b70a3ba61b9951992a418c9176a73fd4"
+		},
+		{
 			"ImportPath": "github.com/asaskevich/govalidator",
 			"Rev": "1547d995bf19b66ac27233d93ec74f2bf2dc04f5"
 		},
@@ -50,6 +55,11 @@
 		{
 			"ImportPath": "github.com/oxtoacart/bpool",
 			"Rev": "0f78ff9152c03745d1a47c9023af1b424e202c07"
+		},
+		{
+			"ImportPath": "github.com/russross/blackfriday",
+			"Comment": "v1.1-132-gc7617b0",
+			"Rev": "c7617b05ad8da2825e1b2d311622bf3472101624"
 		},
 		{
 			"ImportPath": "labix.org/v2/mgo",

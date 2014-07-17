@@ -8,6 +8,10 @@ import (
 	"github.com/martini-contrib/render"
 	"strconv"
 	"encoding/json"
+	"github.com/russross/blackfriday"
+	"io/ioutil"
+	"fmt"
+	"os"
 )
 
 // Entry point for server
@@ -40,9 +44,26 @@ func main() {
 	// Rendering error page
 	m.Get("/error/**", func(params martini.Params, r render.Render) {
 			result := params["_1"]
-			str, _ := strconv.Atoi(result)
-			res, _ := json.MarshalIndent(map[string]interface{}{"id": result, "message":server.GetMessage(str)}, "", "    ")
+			resstr, err := strconv.Atoi(result)
+			error := map[string]interface{}{}
+			error["id"] = resstr
+			error["_err"] = err
+			error["message"] = server.GetMessage(resstr)
+			error["params"] = params
+			error["header"] = r.Header()
+			res, _ := json.MarshalIndent(error, "", "    ")
 			r.HTML(200, "error", string(res))
+		})
+	// Rendering markdown page inside "/arch/" page
+	// with custom ans simple template parser
+	m.Get("/arch/", func() string {
+			wd, _ := os.Getwd()
+			input, err := ioutil.ReadFile(wd + "/md/arch.md")
+			if err != nil {
+				fmt.Printf("Some errors with ReadFile: %v\n", err)
+			}
+			output := blackfriday.MarkdownCommon(input)
+			return server.ParseTemplate("arch", map[string]string{"md": string(output)})
 		})
 	m.Run()
 }
