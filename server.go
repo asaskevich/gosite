@@ -56,7 +56,7 @@ func main() {
 		})
 	// Rendering markdown page inside "/arch/" page
 	// with custom ans simple template parser
-	m.Get("/arch/", func() string {
+	m.Get("/arch", func() string {
 			wd, _ := os.Getwd()
 			input, err := ioutil.ReadFile(wd + "/md/arch.md")
 			if err != nil {
