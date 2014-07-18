@@ -64,5 +64,8 @@ func main() {
 			output := blackfriday.MarkdownCommon(input)
 			return server.ParseTemplate("arch", map[string]string{"md": string(output)})
 		})
+	// Rendering list of posts in JSON format
+	m.Get("/api/posts", server.GetPosts)
+	// m.Get("/api/post?**", server.GetPost)
 	m.Run()
 }
