@@ -31,7 +31,7 @@ func main() {
 	m.Post("/feedback", func(w http.ResponseWriter, r *http.Request, session sessions.Session) string {
 			result := server.WriteFeedback(r.FormValue("name"), r.FormValue("email"), r.FormValue("text"))
 			if result == server.OK {
-				http.Redirect(w, r, "/about?ok", http.StatusFound)
+				http.Redirect(w, r, "/about/?ok", http.StatusFound)
 				return "OK"
 			} else {
 				// Render template with error
