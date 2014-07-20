@@ -7,15 +7,14 @@ $('.carousel').carousel({
 $('.tooltip-social').tooltip({
     selector: "a[data-toggle=tooltip]"
 })
-
 // Activate Bootstrap maxLength plugin
 $('textarea.form-control').maxlength({
-    alwaysShow: true,
-    warningClass: "label label-success",
-    limitReachedClass: "label label-danger"
+        alwaysShow: true,
+        warningClass: "label label-success",
+        limitReachedClass: "label label-danger"
 });
 $('input.form-control').maxlength({
-    alwaysShow: true,
-    warningClass: "label label-success",
-    limitReachedClass: "label label-danger"
+        alwaysShow: true,
+        warningClass: "label label-success",
+        limitReachedClass: "label label-danger"
 });
