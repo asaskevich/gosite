@@ -64,8 +64,14 @@ func main() {
 			output := blackfriday.MarkdownCommon(input)
 			return server.ParseTemplate("arch", map[string]string{"md": string(output)})
 		})
-	// Rendering list of posts in JSON format
-	m.Get("/api/posts", server.GetPosts)
-	// m.Get("/api/post?**", server.GetPost)
+	m.Get("/posts", func() string {
+			wd, _ := os.Getwd()
+			input, err := ioutil.ReadFile(wd + "/md/posts.md")
+			if err != nil {
+				fmt.Printf("Some errors with ReadFile: %v\n", err)
+			}
+			output := blackfriday.MarkdownCommon(input)
+			return server.ParseTemplate("posts", map[string]string{"md": string(output)})
+		})
 	m.Run()
 }
