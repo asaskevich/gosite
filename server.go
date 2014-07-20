@@ -58,8 +58,11 @@ func main() {
 	m.Get("/arch", func() string {
 			wd, _ := os.Getwd()
 			input, err := ioutil.ReadFile(wd + "/md/arch.md")
+			// TODO
+			// Redirect to /error page
 			if err != nil {
 				fmt.Printf("Some errors with ReadFile: %v\n", err)
+				return "error"
 			}
 			output := blackfriday.MarkdownCommon(input)
 			return server.ParseTemplate("arch", map[string]string{"md": string(output)})
@@ -67,11 +70,34 @@ func main() {
 	m.Get("/posts", func() string {
 			wd, _ := os.Getwd()
 			input, err := ioutil.ReadFile(wd + "/md/posts.md")
+			// TODO
+			// Redirect to /error page
 			if err != nil {
 				fmt.Printf("Some errors with ReadFile: %v\n", err)
+				return "error"
 			}
 			output := blackfriday.MarkdownCommon(input)
 			return server.ParseTemplate("posts", map[string]string{"md": string(output)})
+		})
+	m.Get("/topic/**", func(params martini.Params) string {
+			id := params["_1"]
+			_, err := strconv.Atoi(id)
+			// TODO
+			// Redirect to /error page
+			if err != nil {
+				fmt.Printf("Some errors with id: %v\n", err)
+				return "error"
+			}
+			wd, _ := os.Getwd()
+			input, err := ioutil.ReadFile(wd + "/md/posts/" + id + ".md")
+			// TODO
+			// Redirect to /error page
+			if err != nil {
+				fmt.Printf("Some errors with ReadFile: %v\n", err)
+				return "error"
+			}
+			output := blackfriday.MarkdownCommon(input)
+			return server.ParseTemplate("topic", map[string]string{"md": string(output)})
 		})
 	m.Run()
 }
