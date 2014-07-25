@@ -97,7 +97,7 @@ func main() {
 				return "error"
 			}
 			output := blackfriday.MarkdownCommon(input)
-			return server.ParseTemplate("topic", map[string]string{"md": string(output)})
+			return server.ParseTemplate("topic", map[string]string{"md": string(output), "id":id})
 		})
 	m.Run()
 }
